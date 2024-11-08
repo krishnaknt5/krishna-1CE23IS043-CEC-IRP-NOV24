@@ -1,24 +1,19 @@
 //C program for recursive function to solve power and exponant
 #include <stdio.h>
-double power(double base, int exponent) {
-    if (exponent == 0) {
-        return 1;
-    }
-    else if (exponent < 0) {
-        return 1 / power(base, -exponent);
-    }
-    else {
-        return base * power(base, exponent - 1);
-    }
-}
+int power(int n1, int n2);
 int main() {
-    double base;
-    int exponent;
-    printf("Enter base: ");
-    scanf("%lf", &base);
-    printf("Enter exponent: ");
-    scanf("%d", &exponent);
-    double result = power(base, exponent);
-    printf("%.2lf^%d = %.2lf\n", base, exponent, result);
+    int base, a, result;
+    printf("Enter the base: ");
+    scanf("%d", &base);
+    printf("Enter power number(positive): ");
+    scanf("%d", &a);
+    result = power(base, a);
+    printf("%d^%d = %d", base, a, result);
     return 0;
+}
+int power(int base, int a) {
+    if (a != 0)
+        return (base * power(base, a - 1));
+    else
+    return 1;
 }
